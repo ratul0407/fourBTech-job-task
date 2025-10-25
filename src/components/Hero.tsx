@@ -10,7 +10,7 @@ import User3 from "@/public/assets/user3.png";
 import Image from "next/image";
 const Hero = () => {
   return (
-    <div className="lg:flex lg:flex-row-reverse lg:justify-between lg:items-center gap-8">
+    <div className="flex flex-col gap-8 lg:flex-row-reverse lg:justify-between lg:items-center">
       {/* hero image side */}
       <div className="relative">
         {/* payment received card */}
@@ -45,11 +45,14 @@ const Hero = () => {
         />
       </div>
       {/* call to action side */}
-      <div className="space-y-4">
-        <h1 className=" text-primary font-bold text-3xl sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl min-w-[16ch] max-w-[16ch] leading-snug text-center mx-auto lg:text-left">
+      <div className="space-y-4 text-center lg:text-left">
+        <p className="uppercase text-secondary font-semibold leading-px">
+          Easy Payment
+        </p>
+        <h1 className=" text-primary font-bold text-3xl sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl min-w-[16ch] max-w-[16ch] leading-snug  mx-auto ">
           Pay <span className="hero"> fast and smarter</span> from anywhere
         </h1>
-        <p className="text-center text-secondary px-12 lg:px-0 lg:max-w-[45ch] lg:text-left">
+        <p className=" text-secondary px-12 lg:px-0 lg:max-w-[45ch] ">
           Experience the future of payments: fast, secure, and tailored for the
           next generation&rsquo;s convenience and trust.
         </p>
