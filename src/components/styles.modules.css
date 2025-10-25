@@ -1,0 +1,36 @@
+.hero {
+  position: relative;
+  display: inline-block;
+}
+.hero::after {
+  content: "";
+  background-image: url("../../public/heading-unerline.svg");
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  top: 33px;
+  right: 0;
+}
+
+@media (min-width: 640px) {
+  .hero::after {
+    top: 55px;
+  }
+}
+@media (min-width: 768px) {
+  .hero::after {
+    top: 40px;
+  }
+}
+@media (min-width: 1024px) {
+  .hero::after {
+    top: 60px;
+  }
+}
+@media (min-width: 1280px) {
+  .hero::after {
+    top: 70px;
+  }
+}
