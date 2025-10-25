@@ -42,10 +42,7 @@ const pricingPlans = [
 ];
 const Pricing = () => {
   return (
-    <section
-      id="pricing"
-      className="p-4 md:p-6 lg:py-6 lg:px-12 xl:px-16 2xl:px-24 space-y-12"
-    >
+    <section id="pricing" className="section-spacing space-y-12">
       <div className="*:text-center">
         <SubHeading title="Pricing" />
         <Heading
@@ -57,7 +54,7 @@ const Pricing = () => {
         {pricingPlans?.map((item, index) => (
           <div
             key={index}
-            className={`py-10 text-secondary px-6 shadow-sm border border-slate-200 rounded-2xl space-y-6 grid justify-between max-w-sm mx-auto ${
+            className={`py-10 text-secondary px-6 shadow-sm border border-slate-200 rounded-2xl space-y-6 grid justify-between max-w-sm mx-auto  ${
               index == 1 && "bg-primary text-white"
             }`}
           >
@@ -103,8 +100,9 @@ const Pricing = () => {
             </div>
             <div className="pt-12 grid">
               <Button
-                className={`border rounded-full font-bold px-6 py-6 bg-white hover:bg-gray-200 ${
-                  index === 1 && "bg-btn-primary border-0 hover:bg-blue-400"
+                className={`border border-primary rounded-full font-bold px-6 py-6 bg-white hover:bg-gray-100 text-primary ${
+                  index === 1 &&
+                  "bg-btn-primary border-0 hover:bg-blue-400 text-white"
                 }`}
                 variant={"secondary"}
               >

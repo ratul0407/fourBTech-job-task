@@ -7,26 +7,26 @@ import Marquee from "react-fast-marquee";
 const features = [
   {
     color: "bg-light-blue",
-    icon: "./payment.svg",
+    icon: "./icons/payment.svg",
     title: "Instant payments",
     description: "Send money to friends or family in real-time, for free.",
   },
   {
     color: "bg-light-orange",
-    icon: "./fees.svg",
+    icon: "./icons/fees.svg",
     title: "No hidden fees",
     description: "Clear and simple pricing. Always be aware of your costs.",
   },
 
   {
     color: "bg-light-green",
-    icon: "./wallet.svg",
+    icon: "./icons/wallet.svg",
     title: "Digital wallet",
     description: "Store money securely and make fast transfers or purchases.",
   },
   {
     color: "bg-light-purple",
-    icon: "./secure.svg",
+    icon: "./icons/secure.svg",
     title: "Secure transactions",
     description: "End-to-end encryption for all transactions.",
   },
@@ -34,10 +34,7 @@ const features = [
 
 const Features = () => {
   return (
-    <section
-      id="features"
-      className="space-y-12 sm:p-4 md:p-6 lg:py-6 lg:px-12 xl:px-16 2xl:px-24"
-    >
+    <section id="features" className="section-spacing space-y-12">
       <div className="text-center">
         <SubHeading title="Features" />
         <Heading

@@ -47,17 +47,16 @@ const security = [
 ];
 const Security = () => {
   return (
-    <section
-      id="security"
-      className="p-4 md:p-6 lg:py-6 lg:px-12 xl:px-16 2xl:px-24 space-y-12"
-    >
-      <div className="space-y-4">
-        <SubHeading title="Security" />
-        <Heading
-          title="We protect your money at every step with Easy Pay"
-          classes="max-w-[20ch]"
-        />
-        <p className="text-secondary">
+    <section id="security" className="section-spacing space-y-12">
+      <div className="space-y-4 lg:flex lg:items-center lg:justify-between">
+        <div>
+          <SubHeading title="Security" />
+          <Heading
+            title="We protect your money at every step with Easy Pay"
+            classes="max-w-[20ch]"
+          />
+        </div>
+        <p className="text-secondary lg:max-w-[40ch]">
           Easy Pay ensures your money is protected at every step with advanced
           encryption, real-time monitoring, and multi-factor authentication.
         </p>

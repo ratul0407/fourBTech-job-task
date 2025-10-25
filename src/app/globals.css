@@ -17,6 +17,11 @@
   --color-light-gray: #f3f3f3;
 }
 
+@layer components {
+  .section-spacing {
+    @apply p-4 md:p-6 lg:py-6 lg:px-12 xl:px-16 2xl:px-24;
+  }
+}
 html {
   scroll-behavior: smooth;
 }

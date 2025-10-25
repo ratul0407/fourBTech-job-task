@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import Heading from "./Heading";
 import SubHeading from "./SubHeading";
 import Image from "next/image";
-import largeImg from "@/public/assets/howItWorksImage.png";
+import largeImg from "@/public/images/howItWorksImage.png";
 const steps = [
   {
     icon: "./download.svg",
@@ -26,7 +26,7 @@ const steps = [
 const HowItWorks = () => {
   return (
     <section className="bg-bg-gray py-32">
-      <div className="p-4 md:p-6 lg:py-6 lg:px-12 xl:px-16 2xl:px-24 space-y-12">
+      <div className="section-spacing space-y-12">
         <div className="space-y-4 md:flex items-end justify-between">
           <div className="space-y-4">
             <SubHeading title="How It Works" />
@@ -37,8 +37,8 @@ more in 3 simple steps"
             />
           </div>
           <Button
-            variant={"ghost"}
-            className="bg-btn-primary text-white rounded-full px-4 py-6 font-semibold"
+            variant={"secondary"}
+            className="bg-btn-primary hover:bg-blue-500 text-white rounded-full px-4 py-6 font-semibold"
           >
             Get Started Now
           </Button>

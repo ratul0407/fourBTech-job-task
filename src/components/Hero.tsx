@@ -2,11 +2,11 @@ import { Button } from "@/components/ui/button";
 import "./styles.modules.css";
 import AppleIcon from "@/public/Apple.png";
 import PlayStoreIcon from "@/public/Playstore.png";
-import HeroImg from "@/public/assets/hero.png";
-import TrendUp from "@/public/trend-up.svg";
-import User1 from "@/public/assets/user1.png";
-import User2 from "@/public/assets/user2.png";
-import User3 from "@/public/assets/user3.png";
+import HeroImg from "@/public/images/hero.png";
+import TrendUp from "@/public/icons/trend-up.svg";
+import User1 from "@/public/images/user1.png";
+import User2 from "@/public/images/user2.png";
+import User3 from "@/public/images/user3.png";
 import Image from "next/image";
 const Hero = () => {
   return (
