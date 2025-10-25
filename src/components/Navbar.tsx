@@ -34,7 +34,7 @@ const Navbar = () => {
       </Link>
 
       {/* Desktop Menu */}
-      <div className="hidden md:flex space-x-8 text-secondary font-semibold text-lg">
+      <div className="hidden md:flex space-x-8 paragraph font-semibold text-lg">
         {navItem.map((item) => (
           <Link
             key={item.title}
@@ -65,7 +65,7 @@ const Navbar = () => {
               <Menu className="h-6 w-6" />
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="bg-white p-5 text-secondary ">
+          <SheetContent side="right" className="bg-white p-5 paragraph ">
             <div className="flex flex-col space-y-4 mt-8">
               {navItem.map((item) => (
                 <Link

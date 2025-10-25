@@ -18,7 +18,7 @@ const Hero = () => {
           <h3 className="font-semibold">Payment Received</h3>
           <p className="font-bold text-lg text-btn-primary">+35,890.00</p>
           <div className="text-sm flex justify-between gap-6">
-            <span className="text-secondary">1st Jan, 2024</span>
+            <span className="paragraph">1st Jan, 2024</span>
             <div className="text-green-600 flex items-center gap-1">
               <span>3.09%</span>
               <Image src={TrendUp} alt="Up Icon" width={16} height={16} />
@@ -34,7 +34,7 @@ const Hero = () => {
           </div>
           <div>
             <p className="font-semibold leading-2">120K+</p>
-            <span className="text-secondary text-sm">Active Users</span>
+            <span className="paragraph text-sm">Active Users</span>
           </div>
         </div>
         {/* hero img */}
@@ -46,13 +46,13 @@ const Hero = () => {
       </div>
       {/* call to action side */}
       <div className="space-y-4 text-center lg:text-left">
-        <p className="uppercase text-secondary font-semibold leading-px">
+        <p className="uppercase paragraph font-semibold leading-px">
           Easy Payment
         </p>
-        <h1 className=" text-primary font-bold text-3xl sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl min-w-[16ch] max-w-[16ch] leading-snug  mx-auto ">
+        <h1 className=" font-urbanist text-primary font-bold text-3xl sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl min-w-[16ch] max-w-[16ch] leading-snug  mx-auto ">
           Pay <span className="hero"> fast and smarter</span> from anywhere
         </h1>
-        <p className=" text-secondary px-12 lg:px-0 lg:max-w-[45ch] ">
+        <p className=" paragraph px-12 lg:px-0 lg:max-w-[45ch] ">
           Experience the future of payments: fast, secure, and tailored for the
           next generation&rsquo;s convenience and trust.
         </p>

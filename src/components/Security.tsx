@@ -56,7 +56,7 @@ const Security = () => {
             classes="max-w-[20ch]"
           />
         </div>
-        <p className="text-secondary lg:max-w-[40ch]">
+        <p className="paragraph lg:max-w-[40ch]">
           Easy Pay ensures your money is protected at every step with advanced
           encryption, real-time monitoring, and multi-factor authentication.
         </p>
@@ -73,7 +73,7 @@ const Security = () => {
             ></div>
             <div>
               <p className="text-xl font-bold">{item.title}</p>
-              <p className="text-secondary">{item.description}</p>
+              <p className="paragraph">{item.description}</p>
             </div>
             <div
               className={`p-px bg-linear-to-r from-[#F5F5F5] via-[#CBCBCB] to-[#F5F5F5] sm:w-px sm:p-0 sm:h-[80%] sm:absolute sm:top-0 sm:-right-4 ${

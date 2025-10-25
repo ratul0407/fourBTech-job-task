@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <Banner />
-      <main className="container mx-auto space-y-32 pt-32 text-primary">
+      <main className="container mx-auto space-y-32 pt-32 text-primary font-urbanist">
         <Features />
         <HowItWorks />
         <Security />

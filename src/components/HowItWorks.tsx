@@ -5,19 +5,19 @@ import Image from "next/image";
 import largeImg from "@/public/images/howItWorksImage.png";
 const steps = [
   {
-    icon: "./download.svg",
+    icon: "./icons/download.svg",
     title: "Download Easy Pay",
     description:
       "Get the Easy Pay app today from the App Store or Google Play hassle free.",
   },
   {
-    icon: "./card.svg",
+    icon: "./icons/card.svg",
     title: "Link your bank or card",
     description:
       "Easily connect your account in seconds with advanced security for peace of mind.",
   },
   {
-    icon: "./camera.svg",
+    icon: "./icons/camera.svg",
     title: "Start paying",
     description:
       "Easily split bills, send money to friends, and make smooth online payments instantly.",
@@ -58,7 +58,7 @@ more in 3 simple steps"
               </div>
               <div className="space-y-2">
                 <h3 className="text-xl font-bold">{step.title}</h3>
-                <p className="text-secondary">{step.description}</p>
+                <p className="paragraph">{step.description}</p>
               </div>
               <div
                 className={`p-px bg-linear-to-r from-[#F5F5F5] via-[#CBCBCB] to-[#F5F5F5] md:w-px md:p-0 md:h-[70%] md:absolute md:top-5 md:right-0 ${

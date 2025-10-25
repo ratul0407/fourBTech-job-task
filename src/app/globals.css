@@ -1,6 +1,10 @@
 @import "tailwindcss";
 
 @theme {
+  /* font family */
+
+  --font-urbanist: var(--font-urbanist);
+  --font-outfit: var(--font-outfit);
   --color-primary: #01081b;
   --color-accent: #932efa;
   --color-secondary: #4d525f;
@@ -20,6 +24,12 @@
 @layer components {
   .section-spacing {
     @apply p-4 md:p-6 lg:py-6 lg:px-12 xl:px-16 2xl:px-24;
+  }
+  .heading-4 {
+    @apply text-primary text-xl font-bold;
+  }
+  .paragraph {
+    @apply text-secondary font-outfit;
   }
 }
 html {

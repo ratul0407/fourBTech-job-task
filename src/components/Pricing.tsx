@@ -8,7 +8,7 @@ const pricingPlans = [
     name: "Free Plan",
     description: "Free for personal payments",
     price: 0,
-    featureIcon: "./checkmark-light.svg",
+    featureIcon: "./icons/checkmark-light.svg",
     features: [
       "Up to 100 transactions per month",
       "Basic proud protection",
@@ -19,7 +19,7 @@ const pricingPlans = [
     name: "Advanced",
     description: "Minimal fees for advanced transactions",
     price: 19,
-    featureIcon: "./checkmark-dark.svg",
+    featureIcon: "./icons/checkmark-dark.svg",
     features: [
       "Up to 1000 transactions per month",
       "Advanced proud protection",
@@ -31,7 +31,7 @@ const pricingPlans = [
     name: "Business",
     description: "Premium business transactions",
     price: 29,
-    featureIcon: "./checkmark-light.svg",
+    featureIcon: "./icons/checkmark-light.svg",
     features: [
       "Unlimited transactions per month",
       "Premium proud protection",
@@ -54,7 +54,7 @@ const Pricing = () => {
         {pricingPlans?.map((item, index) => (
           <div
             key={index}
-            className={`py-10 text-secondary px-6 shadow-sm border border-slate-200 rounded-2xl space-y-6 grid justify-between max-w-sm mx-auto  ${
+            className={`py-10 paragraph px-6 shadow-sm border border-slate-200 rounded-2xl space-y-6 grid justify-between max-w-sm mx-auto  ${
               index == 1 && "bg-primary text-white"
             }`}
           >

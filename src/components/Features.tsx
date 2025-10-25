@@ -58,8 +58,8 @@ effortless payments?"
               className="mx-auto"
             />
             <div>
-              <p className="font-bold text-xl">{feature.title}</p>
-              <p className="text-secondary">{feature.description}</p>
+              <p className="heading-4">{feature.title}</p>
+              <p className="paragraph">{feature.description}</p>
             </div>
           </div>
         ))}
@@ -73,7 +73,7 @@ effortless payments?"
           />
           <div>
             <p className="font-bold text-xl">Instant payments</p>
-            <p className="text-secondary">
+            <p className="paragraph">
               Send money to friends or family in real-time, for free.
             </p>
           </div>
@@ -85,7 +85,7 @@ effortless payments?"
           {Array.from({ length: 6 }, (_, i) => i + 1).map((item) => (
             <Image
               key={item}
-              src={`./logo${item}.svg`}
+              src={`./icons/logo${item}.svg`}
               width={10}
               height={10}
               className="w-auto h-auto ml-16"
