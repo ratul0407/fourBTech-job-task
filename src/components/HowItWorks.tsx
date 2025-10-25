@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import Heading from "./Heading";
 import SubHeading from "./SubHeading";
 import Image from "next/image";
-
+import largeImg from "@/public/assets/howItWorksImage.png";
 const steps = [
   {
     icon: "./download.svg",
@@ -61,13 +61,20 @@ more in 3 simple steps"
                 <p className="text-secondary">{step.description}</p>
               </div>
               <div
-                className={`p-px bg-linear-to-r from-[#F5F5F5] via-[#CBCBCB] to-[#F5F5F5] md:w-px md:p-0 h-[80%] md:absolute md:top-0 md:right-0 ${
-                  index === 3 && "lg:hidden"
+                className={`p-px bg-linear-to-r from-[#F5F5F5] via-[#CBCBCB] to-[#F5F5F5] md:w-px md:p-0 md:h-[70%] md:absolute md:top-5 md:right-0 ${
+                  index === 3 && "hidden"
                 }`}
               ></div>
             </div>
           ))}
         </div>
+        <Image
+          src={largeImg}
+          width={1170}
+          height={660}
+          className="w-full h-full"
+          alt="Man looking at a laptop"
+        />
       </div>
     </section>
   );

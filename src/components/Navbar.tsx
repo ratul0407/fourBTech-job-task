@@ -13,11 +13,11 @@ const navItem = [
   },
   {
     title: "Pricing",
-    href: "#",
+    href: "#pricing",
   },
   {
     title: "Security",
-    href: "#",
+    href: "#security",
   },
   {
     title: "Benefits",
