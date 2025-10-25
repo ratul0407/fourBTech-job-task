@@ -56,7 +56,7 @@ const Hero = () => {
           Experience the future of payments: fast, secure, and tailored for the
           next generation&rsquo;s convenience and trust.
         </p>
-        <div className="text-white mx-auto w-fit space-x-4 lg:mx-0 lg:pt-12">
+        <div className="text-white mx-auto w-fit grid grid-cols-2 gap-2 lg:mx-0 lg:pt-12">
           <Button className="py-6 rounded-xl">
             <div className="flex items-center gap-3">
               <Image src={AppleIcon} alt="Apple icon" width={24} height={24} />

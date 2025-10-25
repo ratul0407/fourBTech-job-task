@@ -9,7 +9,7 @@ import { Menu } from "lucide-react";
 const navItem = [
   {
     title: "Features",
-    href: "#",
+    href: "#features",
   },
   {
     title: "Pricing",
@@ -79,9 +79,9 @@ const Navbar = () => {
               ))}
               <Button
                 variant="secondary"
-                className="mt-4 bg-btn-primary text-white hover:bg-gray-200"
+                className="mt-4 bg-btn-primary text-white hover:bg-gray-200 w-fit p-4"
               >
-                Get Started
+                Contact Us
               </Button>
             </div>
           </SheetContent>

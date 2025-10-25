@@ -11,4 +11,12 @@
   --color-light-orange: #fbf6ef;
   --color-light-green: #eef9fe;
   --color-light-purple: #f4edfc;
+
+  /* how it works background */
+  --color-bg-gray: #f6f6f6;
+  --color-light-gray: #f3f3f3;
+}
+
+html {
+  scroll-behavior: smooth;
 }

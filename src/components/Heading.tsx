@@ -1,8 +1,11 @@
-const Heading = ({ title }: { title: string }) => {
+interface IProps {
+  title: string;
+  classes: string;
+}
+const Heading = ({ title, classes }: IProps) => {
+  console.log(classes);
   return (
-    <h2 className="font-bold text-3xl md:text-[40px] leading-snug lg:max-w-[20ch] mx-auto">
-      {title}
-    </h2>
+    <h2 className={`font-bold lg:text-[40px] text-3xl ${classes}`}>{title}</h2>
   );
 };
 

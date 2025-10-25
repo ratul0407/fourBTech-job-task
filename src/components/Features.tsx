@@ -1,6 +1,8 @@
+"use client";
 import Image from "next/image";
 import Heading from "./Heading";
 import SubHeading from "./SubHeading";
+import Marquee from "react-fast-marquee";
 
 const features = [
   {
@@ -29,17 +31,23 @@ const features = [
     description: "End-to-end encryption for all transactions.",
   },
 ];
+
 const Features = () => {
   return (
-    <section className="space-y-12">
+    <section
+      id="features"
+      className="space-y-12 sm:p-4 md:p-6 lg:py-6 lg:px-12 xl:px-16 2xl:px-24"
+    >
       <div className="text-center">
         <SubHeading title="Features" />
         <Heading
+          classes="max-w-[20ch] mx-auto"
           title="Why choose Easy Pay for 
 effortless payments?"
         />
       </div>
-      <div className="px-12  grid gird-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      {/* features card */}
+      <div className="px-12 lg:px-0 grid gird-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         {features?.map((feature, index) => (
           <div
             key={index}
@@ -74,6 +82,21 @@ effortless payments?"
           </div>
         </div> */}
       </div>
+      {/* logo marquee */}
+      <Marquee direction="left" autoFill={true}>
+        <div className="flex  overflow-hidden">
+          {Array.from({ length: 6 }, (_, i) => i + 1).map((item) => (
+            <Image
+              key={item}
+              src={`./logo${item}.svg`}
+              width={10}
+              height={10}
+              className="w-auto h-auto ml-16"
+              alt="logo"
+            />
+          ))}
+        </div>
+      </Marquee>
     </section>
   );
 };
