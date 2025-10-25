@@ -23,22 +23,14 @@ const testimonials = [
     rating: 5,
     review:
       "Experience a payment app built on simplicity and transparency. No hidden fees, just a seamless user experience that makes every transaction easy and stress-free. Say goodbye to confusion and hello to straightforward payments.",
-    reviewer: "Ethan Williams",
-    occupation: "Digital Marketing Specialist",
-    picture: testimonialImg2,
-  },
-  {
-    rating: 5,
-    review:
-      "Experience a payment app built on simplicity and transparency. No hidden fees, just a seamless user experience that makes every transaction easy and stress-free. Say goodbye to confusion and hello to straightforward payments.",
-    reviewer: "Ethan Williams",
-    occupation: "Digital Marketing Specialist",
+    reviewer: "Daniel Thompson",
+    occupation: "Product Designer",
     picture: testimonialImg2,
   },
 ];
 const Testimonials = () => {
   return (
-    <section className="bg-bg-gray py-32 rounded-2xl">
+    <section id="testimonials" className="bg-bg-gray py-32 rounded-2xl">
       <div className="section-spacing space-y-12 grid grid-cols-1 md:grid-cols-2">
         <div className="space-y-6">
           <div>

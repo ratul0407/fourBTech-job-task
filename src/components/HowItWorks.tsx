@@ -25,7 +25,7 @@ const steps = [
 ];
 const HowItWorks = () => {
   return (
-    <section className="bg-bg-gray py-32">
+    <section id="how-it-works" className="bg-bg-gray py-32">
       <div className="section-spacing space-y-12">
         <div className="space-y-4 md:flex items-end justify-between">
           <div className="space-y-4">

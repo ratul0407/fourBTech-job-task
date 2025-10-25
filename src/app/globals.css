@@ -23,7 +23,7 @@
 
 @layer components {
   .section-spacing {
-    @apply p-4 md:p-6 lg:py-6 lg:px-12 xl:px-16 2xl:px-24;
+    @apply container mx-auto p-4 md:p-6 lg:py-6 lg:px-12 xl:px-16 2xl:px-24;
   }
   .heading-4 {
     @apply text-primary text-xl font-bold;
