@@ -61,7 +61,7 @@ const WhyUs = () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 50%",
+          start: "top 60%",
           end: "bottom 60%",
           toggleActions: "play none none reverse",
           once: true,

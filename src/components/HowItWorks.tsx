@@ -42,7 +42,7 @@ const HowItWorks = () => {
       ease: "power3.out",
       scrollTrigger: {
         trigger: ".how-heading",
-        start: "top 50%",
+        start: "top 60%",
         once: true,
       },
     });

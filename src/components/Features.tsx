@@ -48,7 +48,7 @@ const Features = () => {
       duration: 1,
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: "top 50%",
+        start: "top 60%",
       },
     });
 

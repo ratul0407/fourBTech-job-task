@@ -50,7 +50,7 @@ const Pricing = () => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: "top 50%",
+        start: "top 60%",
         end: "bottom 60%",
         toggleActions: "play none none reverse",
         once: true,
@@ -78,18 +78,6 @@ const Pricing = () => {
         ease: "power3.out",
       },
       "-=0.4"
-    );
-
-    // Emphasize the middle card (Advanced)
-    tl.to(
-      ".price-card:nth-child(2)",
-      {
-        y: -20,
-        scale: 1.05,
-        duration: 0.8,
-        ease: "elastic.out(1, 0.6)",
-      },
-      "-=0.5"
     );
 
     // Animate features inside cards

@@ -47,7 +47,7 @@ const Navbar = () => {
         y: 30,
         stagger: 0.2,
       })
-      .from(".cta-btn", {
+      .from(".btn-primary", {
         opacity: 0,
         x: 20,
       });
@@ -75,7 +75,7 @@ const Navbar = () => {
       </div>
 
       {/* CTA Button */}
-      <div className="hidden md:block cta-btn">
+      <div className="hidden md:block">
         <button className="btn-primary">Contact Us</button>
       </div>
 

@@ -2,7 +2,6 @@
 import { CodeXml, Headset, LayoutDashboardIcon } from "lucide-react";
 import Heading from "./Heading";
 import SubHeading from "./SubHeading";
-import { Button } from "@/components/ui/button";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -40,18 +39,18 @@ const Benefits = () => {
       ease: "power3.out",
       scrollTrigger: {
         trigger: ".heading",
-        start: "top 50%",
+        start: "top 60%",
         once: true,
       },
     });
-    gsap.from(".cta-btn", {
+    gsap.from(".benefits-btn", {
       opacity: 0,
       scale: 0.8,
       duration: 0.8,
       ease: "back.out(1.7)",
       delay: 0.3,
       scrollTrigger: {
-        trigger: ".cta-btn",
+        trigger: ".benefits-btn",
         start: "top 85%",
         once: true,
       },
@@ -60,13 +59,13 @@ const Benefits = () => {
     gsap.from(".benefits-card", {
       y: 100,
       opacity: 0,
-      duration: 0.8,
-      delay: 1,
-      stagger: 0.2,
+      duration: 0.7,
+      delay: 0.7,
+      stagger: 0.3,
       ease: "power3.out",
       scrollTrigger: {
         trigger: ".benefits-container",
-        start: "top 50%",
+        start: "top 60%",
         once: true,
       },
     });
@@ -81,8 +80,9 @@ const Benefits = () => {
           <SubHeading title="Benefits" />
           <Heading title="The Easiest Way to Move Money" classes="" />
         </div>
-
-        <button className="cta-btn btn-primary">Get Started Now</button>
+        <div className="benefits-btn">
+          <button className="btn-primary">Get Started Now</button>
+        </div>
       </div>
       <div className="space-y-8 benefits-container">
         {benefits?.map((benefits, index) => (

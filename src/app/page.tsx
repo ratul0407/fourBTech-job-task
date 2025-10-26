@@ -1,3 +1,4 @@
+"use client";
 import Banner from "../components/Banner";
 import Features from "../components/Features";
 import Footer from "../components/Footer";
@@ -8,22 +9,43 @@ import Security from "../components/Security";
 import Testimonials from "../components/Testimonials";
 import WhyUs from "../components/WhyUs";
 import Benefits from "../components/Benefits";
+import { useEffect, useState } from "react";
+import Loader from "../components/Loader";
 
 export default function Home() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const handleLoad = () => {
+      setTimeout(() => setLoading(false), 800); // simulate fade delay
+    };
+
+    // Wait for all assets to load
+    if (document.readyState === "complete") handleLoad();
+    else window.addEventListener("load", handleLoad);
+
+    return () => window.removeEventListener("load", handleLoad);
+  }, []);
   return (
     <>
-      <Banner />
-      <main className="space-y-32 pt-32 text-primary font-urbanist">
-        <Features />
-        <HowItWorks />
-        <Security />
-        <Pricing />
-        <WhyUs />
-        <Benefits />
-        <Testimonials />
-        <PaymentsBanner />
-      </main>
-      <Footer />
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <Banner />
+          <main className="space-y-32 pt-32 text-primary font-urbanist">
+            <Features />
+            <HowItWorks />
+            <Security />
+            <Pricing />
+            <WhyUs />
+            <Benefits />
+            <Testimonials />
+            <PaymentsBanner />
+          </main>
+          <Footer />
+        </>
+      )}
     </>
   );
 }

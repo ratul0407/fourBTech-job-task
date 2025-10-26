@@ -42,7 +42,7 @@ const Testimonials = () => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: "#testimonials",
-        start: "top 50%",
+        start: "top 60%",
         once: true, // ✅ ensures animation runs only once
       },
     });
@@ -51,7 +51,7 @@ const Testimonials = () => {
     tl.from(".testimonial-heading", {
       opacity: 0,
       y: 30,
-      duration: 0.8,
+      duration: 0.6,
       ease: "power2.out",
     })
       .from(
@@ -59,7 +59,7 @@ const Testimonials = () => {
         {
           opacity: 0,
           y: 30,
-          duration: 0.8,
+          duration: 0.6,
           ease: "power2.out",
         },
         "-=0.4"
@@ -70,7 +70,7 @@ const Testimonials = () => {
         {
           opacity: 0,
           y: 40,
-          duration: 0.8,
+          duration: 0.6,
           stagger: 0.2,
           ease: "power2.out",
         },
