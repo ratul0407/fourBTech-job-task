@@ -6,6 +6,7 @@ import PaymentsBanner from "../components/PaymentsBanner";
 import Pricing from "../components/Pricing";
 import Security from "../components/Security";
 import Testimonials from "../components/Testimonials";
+import WhyUs from "../components/WhyUs";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <HowItWorks />
         <Security />
         <Pricing />
+        <WhyUs />
         <Testimonials />
         <PaymentsBanner />
       </main>

@@ -1,49 +1,51 @@
 "use client";
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 
 const navItem = [
-  {
-    title: "Features",
-    href: "#features",
-  },
-  {
-    title: "Pricing",
-    href: "#pricing",
-  },
-  {
-    title: "Security",
-    href: "#security",
-  },
-  {
-    title: "Benefits",
-    href: "#",
-  },
+  { title: "Features", href: "#features" },
+  { title: "Pricing", href: "#pricing" },
+  { title: "Security", href: "#security" },
+  { title: "Benefits", href: "#benefits" },
 ];
+
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
+
+  const handleNavClick = (href: string) => {
+    setOpen(false);
+    const section = document.querySelector(href);
+    if (section) {
+      setTimeout(() => {
+        section.scrollIntoView({ behavior: "smooth" });
+      }, 200);
+    }
+  };
+
   return (
     <>
       {/* Logo */}
       <Link href="/" className="flex items-center gap-2">
         <Image src="/logo.png" alt="Logo" width={40} height={40} />
-        <span className=" font-semibold text-lg">Easy Pay</span>
+        <span className="font-semibold text-lg">Easy Pay</span>
       </Link>
 
       {/* Desktop Menu */}
       <div className="hidden md:flex space-x-8 paragraph font-semibold text-lg">
         {navItem.map((item) => (
-          <Link
-            key={item.title}
-            href={item.href}
-            className="hover:text-gray-300"
-            onClick={() => window.scrollTo(0, 0)}
-          >
+          <a key={item.title} href={item.href} className="hover:text-gray-300">
             {item.title}
-          </Link>
+          </a>
         ))}
       </div>
 
@@ -59,23 +61,23 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div className="md:hidden">
-        <Sheet>
+        <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="">
+            <Button variant="ghost" size="icon">
               <Menu className="h-6 w-6" />
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="bg-white p-5 paragraph ">
+          <SheetContent side="right" className="bg-white p-5 paragraph">
+            <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
             <div className="flex flex-col space-y-4 mt-8">
               {navItem.map((item) => (
-                <Link
+                <button
                   key={item.title}
-                  href={item.href}
-                  className="hover:text-gray-300"
-                  onClick={() => window.scrollTo(0, 0)}
+                  onClick={() => handleNavClick(item.href)}
+                  className="text-left hover:text-gray-300"
                 >
                   {item.title}
-                </Link>
+                </button>
               ))}
               <Button
                 variant="secondary"

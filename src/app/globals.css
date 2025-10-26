@@ -19,6 +19,7 @@
   /* how it works background */
   --color-bg-gray: #f6f6f6;
   --color-light-gray: #f3f3f3;
+  --color-lighter-gray: #878787;
 }
 
 @layer components {

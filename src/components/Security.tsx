@@ -76,9 +76,7 @@ const Security = () => {
               <p className="paragraph">{item.description}</p>
             </div>
             <div
-              className={`p-px bg-linear-to-r from-[#F5F5F5] via-[#CBCBCB] to-[#F5F5F5] sm:w-px sm:p-0 sm:h-[80%] sm:absolute sm:top-0 sm:-right-4 ${
-                index % 2 !== 0 ? "sm:hidden" : ""
-              } ${index === 2 || index === 5 ? "lg:hidden" : ""} `}
+              className={`p-px bg-linear-to-r from-[#F5F5F5] via-[#CBCBCB] to-[#F5F5F5] sm:w-px sm:p-0 sm:h-[80%] sm:absolute sm:top-0 sm:-right-4`}
             ></div>
           </div>
         ))}
