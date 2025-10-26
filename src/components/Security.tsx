@@ -15,6 +15,7 @@ const security = [
     title: "Fraud detection and alerts",
     description:
       "Fraud detection safeguards your money, sending instant alerts for any activity.",
+    border: "sm:hidden lg:block",
   },
   {
     color: "#08A965",
@@ -22,6 +23,7 @@ const security = [
     title: "Transaction notifications",
     description:
       "Instant notifications for transaction keep you informed to manage your finances.",
+    border: "lg:hidden",
   },
   {
     color: "#3B7793",
@@ -29,6 +31,7 @@ const security = [
     title: "Biometric access",
     description:
       "Easily and securely log in with biometric features, and facial recognition.",
+    border: "sm:hidden lg:block",
   },
   {
     color: "#D77E1B",
@@ -43,6 +46,7 @@ const security = [
     title: "24/7 Protection support",
     description:
       "Our dedicated team is available around the clock to help you.",
+    border: "sm:hidden",
   },
 ];
 const Security = () => {
@@ -76,7 +80,7 @@ const Security = () => {
               <p className="paragraph">{item.description}</p>
             </div>
             <div
-              className={`p-px bg-linear-to-r from-[#F5F5F5] via-[#CBCBCB] to-[#F5F5F5] sm:w-px sm:p-0 sm:h-[80%] sm:absolute sm:top-0 sm:-right-4`}
+              className={`p-px bg-linear-to-r from-[#F5F5F5] via-[#CBCBCB] to-[#F5F5F5] sm:w-px sm:p-0 sm:h-[80%] sm:absolute sm:top-0 sm:-right-4 ${item.border}`}
             ></div>
           </div>
         ))}

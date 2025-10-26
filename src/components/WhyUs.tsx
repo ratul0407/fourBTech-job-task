@@ -66,7 +66,7 @@ const WhyUs = () => {
           <p className="paragraph text-2xl max-w-[20ch]">
             Instant withdraw your funds at any time
           </p>
-          <div className="flex gap-6 items-center justify-center">
+          <div className="flex gap-6 items-center justify-center md:justify-start">
             <div className="bg-accent rounded-full w-fit p-4">
               <DollarSign className="text-white size-8" />
             </div>

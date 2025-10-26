@@ -1,4 +1,5 @@
 import Banner from "../components/Banner";
+import EasyService from "../components/EasyService";
 import Features from "../components/Features";
 import Footer from "../components/Footer";
 import HowItWorks from "../components/HowItWorks";
@@ -18,6 +19,7 @@ export default function Home() {
         <Security />
         <Pricing />
         <WhyUs />
+        <EasyService />
         <Testimonials />
         <PaymentsBanner />
       </main>

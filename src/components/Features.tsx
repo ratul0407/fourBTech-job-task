@@ -63,21 +63,6 @@ effortless payments?"
             </div>
           </div>
         ))}
-        {/* <div className="bg-light-blue py-8 px-5.5 rounded-2xl text-center space-y-10">
-          <Image
-            src="./payment.svg"
-            width={60}
-            height={60}
-            alt="Payment Icon"
-            className="mx-auto"
-          />
-          <div>
-            <p className="font-bold text-xl">Instant payments</p>
-            <p className="paragraph">
-              Send money to friends or family in real-time, for free.
-            </p>
-          </div>
-        </div> */}
       </div>
       {/* logo marquee */}
       <Marquee direction="left" autoFill={true}>
