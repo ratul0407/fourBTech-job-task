@@ -7,6 +7,7 @@ import largeImg from "@/public/images/howItWorksImage.png";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -41,7 +42,7 @@ const HowItWorks = () => {
       ease: "power3.out",
       scrollTrigger: {
         trigger: ".how-heading",
-        start: "top 80%",
+        start: "top 50%",
         once: true,
       },
     });
@@ -65,7 +66,7 @@ const HowItWorks = () => {
       y: 60,
       opacity: 0,
       rotate: 3,
-      duration: 0.8,
+      duration: 0.4,
       ease: "power3.out",
       stagger: 0.25,
       scrollTrigger: {
@@ -116,12 +117,7 @@ const HowItWorks = () => {
               title="Make payments, transfers, and more in 3 simple steps"
             />
           </div>
-          <Button
-            variant={"secondary"}
-            className="how-btn bg-btn-primary hover:bg-blue-500 text-white rounded-full px-4 py-6 font-semibold"
-          >
-            Get Started Now
-          </Button>
+          <button className="how-btn btn-primary">Get Started Now</button>
         </div>
 
         {/* Steps */}

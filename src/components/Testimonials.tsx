@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import Image from "next/image";
 import Heading from "./Heading";
 import SubHeading from "./SubHeading";
@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 // ✅ GSAP Imports
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(ScrollTrigger);
 
 const testimonials = [
@@ -37,56 +38,50 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#testimonials",
+        start: "top 50%",
+        markers: true,
+        once: true, // ✅ ensures animation runs only once
+      },
+    });
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-          once: true, // ✅ ensures animation runs only once
+    // animate heading and paragraph
+    tl.from(".testimonial-heading", {
+      opacity: 0,
+      y: 30,
+      duration: 0.8,
+      ease: "power2.out",
+    })
+      .from(
+        ".testimonial-paragraph",
+        {
+          opacity: 0,
+          y: 30,
+          duration: 0.8,
+          ease: "power2.out",
         },
-      });
-
-      // animate heading and paragraph
-      tl.from(".testimonial-heading", {
-        opacity: 0,
-        y: 30,
-        duration: 0.8,
-        ease: "power2.out",
-      })
-        .from(
-          ".testimonial-paragraph",
-          {
-            opacity: 0,
-            y: 30,
-            duration: 0.8,
-            ease: "power2.out",
-          },
-          "-=0.4"
-        )
-        // animate each slide
-        .from(
-          ".testimonial-slide",
-          {
-            opacity: 0,
-            y: 40,
-            duration: 0.8,
-            stagger: 0.2,
-            ease: "power2.out",
-          },
-          "-=0.3"
-        );
-    }, sectionRef);
-
-    return () => ctx.revert();
+        "-=0.4"
+      )
+      // animate each slide
+      .from(
+        ".testimonial-slide",
+        {
+          opacity: 0,
+          y: 40,
+          duration: 0.8,
+          stagger: 0.2,
+          ease: "power2.out",
+        },
+        "-=0.3"
+      );
   }, []);
 
   return (
     <section
       id="testimonials"
-      ref={sectionRef}
       className="bg-bg-gray py-32 rounded-2xl overflow-hidden"
     >
       <div className="section-spacing space-y-12 grid grid-cols-1 md:grid-cols-2">

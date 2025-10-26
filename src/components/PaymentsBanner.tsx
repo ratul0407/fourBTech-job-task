@@ -15,12 +15,10 @@ const PaymentsBanner = () => {
           </p>
         </div>
         <div className="mx-auto text-center space-x-5">
-          <Button className="text-white bg-btn-primary rounded-full hover:bg-blue-400 font-outfit text-semibold p-6">
-            Download the App
-          </Button>
-          <Button className="text-white bg-transparent border border-white rounded-full font-outfit text-semibold p-6 hover:bg-white hover:text-black">
+          <button className="btn-primary">Download the App</button>
+          <button className="text-white bg-transparent border border-white rounded-full font-outfit text-semibold px-6 py-4 hover:bg-white hover:text-black">
             Get Started Now
-          </Button>
+          </button>
         </div>
       </div>
     </section>

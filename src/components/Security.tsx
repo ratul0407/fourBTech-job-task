@@ -64,7 +64,7 @@ const Security = () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 80%",
+          start: "top 50%",
           end: "bottom 60%",
           toggleActions: "play none none reverse",
           once: true,

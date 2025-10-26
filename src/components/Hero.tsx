@@ -28,9 +28,9 @@ const Hero = () => {
       .from(".hero-heading", { opacity: 0, y: 100 })
       // Fade in paragraph
       .from(".hero-subtext", { opacity: 0, y: 20 })
-      .from(".hero", { "--underline-width": "0%" })
       // Buttons fade and pop
-      .from(".hero-btn", { opacity: 0, scale: 0.8, stagger: 0.15 });
+      .from(".hero-btn", { opacity: 0, scale: 0.8, stagger: 0.15 })
+      .from(".hero", { "--underline-width": "0%", ease: "power1.inOut" });
   }, []);
   return (
     <div

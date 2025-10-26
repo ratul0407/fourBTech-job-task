@@ -48,17 +48,17 @@ const Features = () => {
       duration: 1,
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: "top 80%",
+        start: "top 50%",
       },
     });
 
     // Animate each card in with a stagger
     gsap.from(cardsRef.current, {
       opacity: 0,
-      y: 80,
-      duration: 1.2,
+      y: 300,
+      duration: 0.7,
       stagger: 0.2,
-      ease: "power3.out",
+      ease: "power2.out",
       scrollTrigger: {
         trigger: sectionRef.current,
         start: "top 75%",
@@ -87,23 +87,24 @@ const Features = () => {
       {/* features cards */}
       <div className="px-12 lg:px-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         {features.map((feature, index) => (
-          <div
-            key={index}
-            ref={(el) => {
-              if (el) cardsRef.current[index] = el;
-            }}
-            className={`${feature.color} py-8 px-5.5 rounded-2xl text-center space-y-10 max-w-xs mx-auto shadow-md`}
-          >
-            <Image
-              src={feature.icon}
-              width={60}
-              height={60}
-              alt={feature.title}
-              className="mx-auto"
-            />
-            <div>
-              <p className="heading-4">{feature.title}</p>
-              <p className="paragraph">{feature.description}</p>
+          <div key={index} className="overflow-hidden py-8">
+            <div
+              ref={(el) => {
+                if (el) cardsRef.current[index] = el;
+              }}
+              className={`${feature.color} py-8 px-5.5 rounded-2xl text-center space-y-10 max-w-xs mx-auto shadow-md`}
+            >
+              <Image
+                src={feature.icon}
+                width={60}
+                height={60}
+                alt={feature.title}
+                className="mx-auto"
+              />
+              <div>
+                <p className="heading-4">{feature.title}</p>
+                <p className="paragraph">{feature.description}</p>
+              </div>
             </div>
           </div>
         ))}

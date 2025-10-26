@@ -76,12 +76,7 @@ const Navbar = () => {
 
       {/* CTA Button */}
       <div className="hidden md:block cta-btn">
-        <Button
-          variant="secondary"
-          className=" bg-btn-primary rounded-full font-semibold hover:bg-blue-400 text-white"
-        >
-          Contact Us
-        </Button>
+        <button className="btn-primary">Contact Us</button>
       </div>
 
       {/* Mobile Menu */}

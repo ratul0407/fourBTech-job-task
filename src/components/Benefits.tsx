@@ -40,7 +40,7 @@ const Benefits = () => {
       ease: "power3.out",
       scrollTrigger: {
         trigger: ".heading",
-        start: "top 80%",
+        start: "top 50%",
         once: true,
       },
     });
@@ -66,23 +66,23 @@ const Benefits = () => {
       ease: "power3.out",
       scrollTrigger: {
         trigger: ".benefits-container",
-        start: "top 80%",
+        start: "top 50%",
         once: true,
       },
     });
   });
   return (
-    <section className="section-spacing gap-12 flex flex-col lg:flex-row">
+    <section
+      id="benefits"
+      className="section-spacing gap-12 flex flex-col lg:flex-row"
+    >
       <div className="space-y-2 flex flex-col lg:justify-between">
         <div className="heading">
           <SubHeading title="Benefits" />
           <Heading title="The Easiest Way to Move Money" classes="" />
         </div>
-        <div className="cta-btn">
-          <Button className="bg-btn-primary w-fit text-white rounded-full p-6 font-semibold">
-            Get Started Now
-          </Button>
-        </div>
+
+        <button className="cta-btn btn-primary">Get Started Now</button>
       </div>
       <div className="space-y-8 benefits-container">
         {benefits?.map((benefits, index) => (

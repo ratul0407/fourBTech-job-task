@@ -32,6 +32,9 @@
   .paragraph {
     @apply text-secondary font-outfit;
   }
+  .btn-primary {
+    @apply bg-btn-primary py-4 px-6 font-outfit font-semibold text-white hover:bg-blue-400 rounded-full  cursor-pointer w-fit;
+  }
 }
 html {
   scroll-behavior: smooth;
