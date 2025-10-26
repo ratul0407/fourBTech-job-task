@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Heading from "./Heading";
 import SubHeading from "./SubHeading";
@@ -10,6 +11,12 @@ import "swiper/css/navigation";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Navigation } from "swiper/modules";
 import { Button } from "@/components/ui/button";
+
+// ✅ GSAP Imports
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
 const testimonials = [
   {
     rating: 5,
@@ -28,19 +35,70 @@ const testimonials = [
     picture: testimonialImg2,
   },
 ];
+
 const Testimonials = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          once: true, // ✅ ensures animation runs only once
+        },
+      });
+
+      // animate heading and paragraph
+      tl.from(".testimonial-heading", {
+        opacity: 0,
+        y: 30,
+        duration: 0.8,
+        ease: "power2.out",
+      })
+        .from(
+          ".testimonial-paragraph",
+          {
+            opacity: 0,
+            y: 30,
+            duration: 0.8,
+            ease: "power2.out",
+          },
+          "-=0.4"
+        )
+        // animate each slide
+        .from(
+          ".testimonial-slide",
+          {
+            opacity: 0,
+            y: 40,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: "power2.out",
+          },
+          "-=0.3"
+        );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section id="testimonials" className="bg-bg-gray py-32 rounded-2xl">
+    <section
+      id="testimonials"
+      ref={sectionRef}
+      className="bg-bg-gray py-32 rounded-2xl overflow-hidden"
+    >
       <div className="section-spacing space-y-12 grid grid-cols-1 md:grid-cols-2">
         <div className="space-y-6">
-          <div>
+          <div className="testimonial-heading">
             <SubHeading title="Testimonial" />
             <Heading
               title="We’ve build trust with reviews from real users"
               classes="max-w-[20ch]"
             />
           </div>
-          <p className="paragraph max-w-[45ch]">
+          <p className="testimonial-paragraph paragraph max-w-[45ch]">
             Boost your credibility by featuring genuine testimonials from real
             users, showcasing their positive experiences and satisfaction with
             Monks Pay services.
@@ -54,12 +112,13 @@ const Testimonials = () => {
             </Button>
             <Button
               variant={"ghost"}
-              className=" custom-next bg-primary text-white p-2 rounded-full disabled:bg-white disabled:border-gray-700 disabled:border disabled:text-primary"
+              className="custom-next bg-primary text-white p-2 rounded-full disabled:bg-white disabled:border-gray-700 disabled:border disabled:text-primary"
             >
               <ChevronRight />
             </Button>
           </div>
         </div>
+
         <Swiper
           spaceBetween={20}
           modules={[Navigation]}
@@ -72,7 +131,7 @@ const Testimonials = () => {
           {testimonials?.map((item, index) => (
             <SwiperSlide
               key={index}
-              className="rounded-2xl bg-white py-8 px-6 space-y-8 max-w-sm"
+              className="testimonial-slide rounded-2xl bg-white py-8 px-6 space-y-8 max-w-sm"
             >
               <div className="space-y-4">
                 <div className="flex">
@@ -108,6 +167,7 @@ const Testimonials = () => {
             </SwiperSlide>
           ))}
         </Swiper>
+
         <div className="md:hidden flex items-center gap-4 justify-center">
           <Button
             variant={"ghost"}
@@ -117,7 +177,7 @@ const Testimonials = () => {
           </Button>
           <Button
             variant={"ghost"}
-            className=" custom-next bg-primary text-white p-2 rounded-full disabled:bg-white disabled:border-gray-700 disabled:border disabled:text-primary"
+            className="custom-next bg-primary text-white p-2 rounded-full disabled:bg-white disabled:border-gray-700 disabled:border disabled:text-primary"
           >
             <ChevronRight />
           </Button>

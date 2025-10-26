@@ -11,6 +11,8 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const navItem = [
   { title: "Features", href: "#features" },
@@ -32,28 +34,51 @@ const Navbar = () => {
     }
   };
 
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      defaults: { ease: "power2.out", duration: 0.6 },
+    });
+    tl.from(".logo", {
+      opacity: 0,
+      x: -30,
+    })
+      .from(".nav-item", {
+        opacity: 0,
+        y: 30,
+        stagger: 0.2,
+      })
+      .from(".cta-btn", {
+        opacity: 0,
+        x: 20,
+      });
+  });
+
   return (
     <>
       {/* Logo */}
-      <Link href="/" className="flex items-center gap-2">
+      <Link href="/" className="overflow-hidden logo flex items-center gap-2">
         <Image src="/logo.png" alt="Logo" width={40} height={40} />
         <span className="font-semibold text-lg">Easy Pay</span>
       </Link>
 
       {/* Desktop Menu */}
-      <div className="hidden md:flex space-x-8 paragraph font-semibold text-lg">
+      <div className="hidden md:flex space-x-8 paragraph font-semibold text-lg overflow-hidden">
         {navItem.map((item) => (
-          <a key={item.title} href={item.href} className="hover:text-gray-300">
+          <a
+            key={item.title}
+            href={item.href}
+            className="nav-item hover:text-gray-300"
+          >
             {item.title}
           </a>
         ))}
       </div>
 
       {/* CTA Button */}
-      <div className="hidden md:block">
+      <div className="hidden md:block cta-btn">
         <Button
           variant="secondary"
-          className="bg-btn-primary rounded-full font-semibold hover:bg-blue-400 text-white"
+          className=" bg-btn-primary rounded-full font-semibold hover:bg-blue-400 text-white"
         >
           Contact Us
         </Button>

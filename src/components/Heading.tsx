@@ -1,6 +1,6 @@
 interface IProps {
   title: string;
-  classes: string;
+  classes?: string;
 }
 const Heading = ({ title, classes }: IProps) => {
   console.log(classes);

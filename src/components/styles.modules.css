@@ -1,12 +1,14 @@
 .hero {
   position: relative;
   display: inline-block;
+  --underline-height: 100%;
+  --underline-width: 100%;
 }
 .hero::after {
   content: "";
   background-image: url("../../public/heading-unerline.svg");
-  height: 100%;
-  width: 100%;
+  height: var(--underline-height);
+  width: var(--underline-width);
   position: absolute;
   background-repeat: no-repeat;
   background-size: contain;

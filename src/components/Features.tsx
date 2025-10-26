@@ -1,8 +1,14 @@
 "use client";
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import Heading from "./Heading";
 import SubHeading from "./SubHeading";
 import Marquee from "react-fast-marquee";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const features = [
   {
@@ -17,7 +23,6 @@ const features = [
     title: "No hidden fees",
     description: "Clear and simple pricing. Always be aware of your costs.",
   },
-
   {
     color: "bg-light-green",
     icon: "./icons/wallet.svg",
@@ -33,28 +38,67 @@ const features = [
 ];
 
 const Features = () => {
+  const sectionRef = useRef(null);
+  const cardsRef = useRef<HTMLDivElement[]>([]);
+
+  useGSAP(() => {
+    gsap.from(".features-heading", {
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 80%",
+      },
+    });
+
+    // Animate each card in with a stagger
+    gsap.from(cardsRef.current, {
+      opacity: 0,
+      y: 80,
+      duration: 1.2,
+      stagger: 0.2,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 75%",
+      },
+    });
+  }, []);
+
   return (
-    <section id="features" className="section-spacing space-y-12">
-      <div className="text-center">
-        <SubHeading title="Features" />
-        <Heading
-          classes="max-w-[20ch] mx-auto"
-          title="Why choose Easy Pay for 
-effortless payments?"
-        />
+    <section
+      ref={sectionRef}
+      id="features"
+      className="section-spacing space-y-12 overflow-hidden"
+    >
+      <div className="text-center ">
+        <div className="overflow-hidden features-heading">
+          <SubHeading title="Features" />
+        </div>
+        <div className="overflow-hidden">
+          <Heading
+            classes="max-w-[20ch] mx-auto features-heading"
+            title="Why choose Easy Pay for effortless payments?"
+          />
+        </div>
       </div>
-      {/* features card */}
-      <div className="px-12 lg:px-0 grid gird-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-        {features?.map((feature, index) => (
+
+      {/* features cards */}
+      <div className="px-12 lg:px-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        {features.map((feature, index) => (
           <div
             key={index}
-            className={`${feature.color} py-8 px-5.5 rounded-2xl text-center space-y-10 max-w-xs mx-auto`}
+            ref={(el) => {
+              if (el) cardsRef.current[index] = el;
+            }}
+            className={`${feature.color} py-8 px-5.5 rounded-2xl text-center space-y-10 max-w-xs mx-auto shadow-md`}
           >
             <Image
               src={feature.icon}
               width={60}
               height={60}
-              alt="Payment Icon"
+              alt={feature.title}
               className="mx-auto"
             />
             <div>
@@ -64,9 +108,10 @@ effortless payments?"
           </div>
         ))}
       </div>
+
       {/* logo marquee */}
       <Marquee direction="left" autoFill={true}>
-        <div className="flex  overflow-hidden">
+        <div className="flex overflow-hidden">
           {Array.from({ length: 6 }, (_, i) => i + 1).map((item) => (
             <Image
               key={item}

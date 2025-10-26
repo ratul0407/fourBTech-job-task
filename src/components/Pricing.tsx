@@ -1,7 +1,11 @@
+"use client";
 import Image from "next/image";
 import Heading from "./Heading";
 import SubHeading from "./SubHeading";
 import { Button } from "@/components/ui/button";
+import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
+import gsap from "gsap";
 
 const pricingPlans = [
   {
@@ -41,9 +45,76 @@ const pricingPlans = [
   },
 ];
 const Pricing = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 80%",
+        end: "bottom 60%",
+        toggleActions: "play none none reverse",
+        once: true,
+      },
+      delay: 0.3,
+    });
+
+    // Animate heading
+    tl.from(".pricing-heading", {
+      y: 40,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power3.out",
+    });
+
+    // Animate pricing cards
+    tl.from(
+      ".price-card",
+      {
+        y: 80,
+        opacity: 0,
+        scale: 0.9,
+        duration: 0.9,
+        stagger: 0.2,
+        ease: "power3.out",
+      },
+      "-=0.4"
+    );
+
+    // Emphasize the middle card (Advanced)
+    tl.to(
+      ".price-card:nth-child(2)",
+      {
+        y: -20,
+        scale: 1.05,
+        duration: 0.8,
+        ease: "elastic.out(1, 0.6)",
+      },
+      "-=0.5"
+    );
+
+    // Animate features inside cards
+    tl.from(
+      ".feature-item",
+      {
+        opacity: 0,
+        x: -20,
+        duration: 0.4,
+        stagger: {
+          amount: 0.8,
+          from: "start",
+        },
+        ease: "power2.out",
+      },
+      "-=0.5"
+    );
+  });
   return (
-    <section id="pricing" className="section-spacing space-y-12">
-      <div className="*:text-center">
+    <section
+      ref={sectionRef}
+      id="pricing"
+      className="section-spacing space-y-12"
+    >
+      <div className="*:text-center pricing-heading">
         <SubHeading title="Pricing" />
         <Heading
           title="Simple transparent pricing no hidden fees"
@@ -54,7 +125,7 @@ const Pricing = () => {
         {pricingPlans?.map((item, index) => (
           <div
             key={index}
-            className={`py-10 paragraph px-6 shadow-sm border border-slate-200 rounded-2xl space-y-6 grid justify-between max-w-sm mx-auto  ${
+            className={`price-card py-10 paragraph px-6 shadow-sm border border-slate-200 rounded-2xl space-y-6 grid justify-between max-w-sm mx-auto  ${
               index == 1 && "bg-primary text-white"
             }`}
           >

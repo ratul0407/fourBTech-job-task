@@ -1,5 +1,11 @@
+"use client";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Heading from "./Heading";
 import SubHeading from "./SubHeading";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const security = [
   {
@@ -49,31 +55,85 @@ const security = [
     border: "sm:hidden",
   },
 ];
+
 const Security = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          end: "bottom 60%",
+          toggleActions: "play none none reverse",
+          once: true,
+        },
+        delay: 0.3, // delay before animation starts
+      });
+
+      tl.from(".security-heading", {
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+      })
+        .from(
+          ".security-paragraph",
+          {
+            y: 40,
+            opacity: 0,
+            duration: 0.8,
+            ease: "power3.out",
+          },
+          "-=0.4"
+        )
+        .from(
+          ".security-card",
+          {
+            y: 40,
+            opacity: 0,
+            scale: 0.95,
+            duration: 0.6,
+            stagger: 0.15,
+            ease: "power3.out",
+          },
+          "-=0.3"
+        );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section id="security" className="section-spacing space-y-12">
+    <section
+      id="security"
+      ref={sectionRef}
+      className="section-spacing space-y-12 overflow-hidden"
+    >
       <div className="space-y-4 lg:flex lg:items-center lg:justify-between">
         <div>
           <SubHeading title="Security" />
           <Heading
             title="We protect your money at every step with Easy Pay"
-            classes="max-w-[20ch]"
+            classes="max-w-[20ch] security-heading"
           />
         </div>
-        <p className="paragraph lg:max-w-[40ch]">
+        <p className="paragraph lg:max-w-[40ch] security-paragraph">
           Easy Pay ensures your money is protected at every step with advanced
           encryption, real-time monitoring, and multi-factor authentication.
         </p>
       </div>
+
       <div className="bg-bg-gray rounded-2xl px-6 py-10 grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
-        {security?.map((item, index) => (
-          <div key={index} className="space-y-6 relative ">
+        {security.map((item, index) => (
+          <div key={index} className="space-y-6 relative security-card">
             <div
               style={{
                 backgroundColor: item.color,
-                borderColor: `${item.border_color}`,
+                borderColor: item.border_color,
               }}
-              className={`size-4 rounded-full border-4`}
+              className="size-4 rounded-full border-4"
             ></div>
             <div>
               <p className="text-xl font-bold">{item.title}</p>
