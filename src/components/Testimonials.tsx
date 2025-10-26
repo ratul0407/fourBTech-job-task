@@ -43,7 +43,6 @@ const Testimonials = () => {
       scrollTrigger: {
         trigger: "#testimonials",
         start: "top 50%",
-        markers: true,
         once: true, // ✅ ensures animation runs only once
       },
     });

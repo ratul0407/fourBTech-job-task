@@ -112,11 +112,11 @@ const Security = () => {
       className="section-spacing space-y-12 overflow-hidden"
     >
       <div className="space-y-4 lg:flex lg:items-center lg:justify-between">
-        <div>
+        <div className="security-heading">
           <SubHeading title="Security" />
           <Heading
             title="We protect your money at every step with Easy Pay"
-            classes="max-w-[20ch] security-heading"
+            classes="max-w-[20ch]"
           />
         </div>
         <p className="paragraph lg:max-w-[40ch] security-paragraph">
