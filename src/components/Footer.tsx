@@ -74,7 +74,7 @@ const Footer = () => {
             <Image src="/logo.png" alt="Logo" width={40} height={40} />
             <span className="font-semibold text-lg">Easy Pay</span>
           </Link>
-          <p className="paragraph max-w-[30ch]">
+          <p className="paragraph max-w-[30ch] mx-auto">
             Easy Pay offers secure, seamless, and fee-free payments for
             effortless global transactions.
           </p>
