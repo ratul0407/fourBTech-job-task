@@ -1,5 +1,4 @@
 "use client";
-import { useRef } from "react";
 import Image from "next/image";
 import Heading from "./Heading";
 import SubHeading from "./SubHeading";
@@ -12,7 +11,6 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Navigation } from "swiper/modules";
 import { Button } from "@/components/ui/button";
 
-// ✅ GSAP Imports
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";

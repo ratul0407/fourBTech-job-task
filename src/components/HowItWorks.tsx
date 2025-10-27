@@ -1,5 +1,5 @@
 "use client";
-import { Button } from "@/components/ui/button";
+
 import Heading from "./Heading";
 import SubHeading from "./SubHeading";
 import Image from "next/image";
@@ -7,7 +7,6 @@ import largeImg from "@/public/images/howItWorksImage.png";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger);
 

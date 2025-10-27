@@ -17,10 +17,9 @@ export default function Home() {
 
   useEffect(() => {
     const handleLoad = () => {
-      setTimeout(() => setLoading(false), 800); // simulate fade delay
+      setTimeout(() => setLoading(false), 800);
     };
 
-    // Wait for all assets to load
     if (document.readyState === "complete") handleLoad();
     else window.addEventListener("load", handleLoad);
 
