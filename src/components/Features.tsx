@@ -48,7 +48,8 @@ const Features = () => {
       duration: 1,
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: "top 60%",
+        start: "top 40%",
+        once: true,
       },
     });
 
@@ -61,7 +62,8 @@ const Features = () => {
       ease: "power2.out",
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: "top 75%",
+        start: "top 40%",
+        once: true,
       },
     });
   }, []);

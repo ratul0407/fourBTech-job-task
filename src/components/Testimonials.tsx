@@ -42,7 +42,7 @@ const Testimonials = () => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: "#testimonials",
-        start: "top 60%",
+        start: "top 40%",
         once: true, // ✅ ensures animation runs only once
       },
     });

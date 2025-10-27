@@ -1,57 +1,46 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const PaymentsBanner = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     const section = sectionRef.current;
     if (!section) return;
 
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: "top 85%", // animation triggers when 85% of section is visible
-          toggleActions: "play none none reverse",
-        },
-      });
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "top 40%",
+        once: true, // Runs only once
+      },
+    });
 
-      tl.from(".banner-heading", {
+    tl.from(".banner-heading", {
+      opacity: 0,
+      y: 60,
+      duration: 0.8,
+      ease: "power3.out",
+    })
+      .from(".banner-text", {
         opacity: 0,
-        y: 60,
-        duration: 0.8,
+        y: 40,
+        duration: 0.7,
         ease: "power3.out",
       })
-        .from(
-          ".banner-text",
-          {
-            opacity: 0,
-            y: 40,
-            duration: 0.7,
-            ease: "power3.out",
-          },
-          "-=0.4"
-        )
-        .from(
-          ".banner-buttons",
-          {
-            opacity: 0,
-            y: 30,
-            duration: 0.6,
-            ease: "back.out(1.7)",
-          },
-          "-=0.3"
-        );
-    }, section);
-
-    return () => ctx.revert();
-  }, []);
+      .from(".banner-buttons", {
+        opacity: 0,
+        y: 30,
+        duration: 0.6,
+        ease: "back.out(1.7)",
+      });
+  });
 
   return (
     <section className="section-spacing" ref={sectionRef}>

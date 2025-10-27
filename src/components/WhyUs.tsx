@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { DollarSign, Landmark, MoveLeft, MoveRight } from "lucide-react";
 import Heading from "./Heading";
 import SubHeading from "./SubHeading";
@@ -15,6 +15,7 @@ import {
   Filler,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -56,64 +57,60 @@ const WhyUs = () => {
     },
   };
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 60%",
-          end: "bottom 60%",
-          toggleActions: "play none none reverse",
-          once: true,
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 40%",
+        end: "bottom 60%",
+        toggleActions: "play none none reverse",
+        once: true,
+      },
+      delay: 0.3, // wait before starting
+    });
+
+    tl.from(".why-heading", {
+      y: 40,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power3.out",
+    })
+      .from(
+        ".why-card",
+        {
+          y: 60,
+          opacity: 0,
+          scale: 0.95,
+          duration: 0.8,
+          stagger: 0.2,
+          ease: "power3.out",
         },
-        delay: 0.3, // wait before starting
-      });
-
-      tl.from(".why-heading", {
-        y: 40,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power3.out",
-      })
-        .from(
-          ".why-card",
-          {
-            y: 60,
-            opacity: 0,
-            scale: 0.95,
-            duration: 0.8,
-            stagger: 0.2,
-            ease: "power3.out",
-          },
-          "-=0.4"
-        )
-        .from(
-          ".why-icons div",
-          {
-            y: 20,
-            opacity: 0,
-            rotate: -20,
-            scale: 0.8,
-            duration: 0.6,
-            stagger: 0.1,
-            ease: "back.out(1.7)",
-          },
-          "-=0.3"
-        )
-        .from(
-          ".chart-container",
-          {
-            opacity: 0,
-            y: 50,
-            duration: 0.9,
-            ease: "power2.out",
-          },
-          "-=0.4"
-        );
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
+        "-=0.4"
+      )
+      .from(
+        ".why-icons div",
+        {
+          y: 20,
+          opacity: 0,
+          rotate: -20,
+          scale: 0.8,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: "back.out(1.7)",
+        },
+        "-=0.3"
+      )
+      .from(
+        ".chart-container",
+        {
+          opacity: 0,
+          y: 50,
+          duration: 0.9,
+          ease: "power2.out",
+        },
+        "-=0.4"
+      );
+  });
 
   return (
     <section

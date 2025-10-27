@@ -16,8 +16,8 @@ import gsap from "gsap";
 
 const navItem = [
   { title: "Features", href: "#features" },
-  { title: "Security", href: "#security" },
   { title: "Pricing", href: "#pricing" },
+  { title: "Security", href: "#security" },
   { title: "Benefits", href: "#benefits" },
 ];
 
@@ -47,7 +47,7 @@ const Navbar = () => {
         y: 30,
         stagger: 0.2,
       })
-      .from(".btn-primary", {
+      .from(".nav-btn", {
         opacity: 0,
         x: 20,
       });
@@ -76,7 +76,7 @@ const Navbar = () => {
 
       {/* CTA Button */}
       <div className="hidden md:block">
-        <button className="btn-primary">Contact Us</button>
+        <button className="nav-btn btn-primary">Contact Us</button>
       </div>
 
       {/* Mobile Menu */}

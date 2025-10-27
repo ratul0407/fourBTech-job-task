@@ -6,7 +6,7 @@
 }
 .hero::after {
   content: "";
-  background-image: url("../../../public/heading-unerline.svg");
+  background-image: url("../../../public/icons/heading-unerline.svg");
   height: var(--underline-height);
   width: var(--underline-width);
   position: absolute;

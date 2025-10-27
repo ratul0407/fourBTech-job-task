@@ -39,7 +39,7 @@ const Benefits = () => {
       ease: "power3.out",
       scrollTrigger: {
         trigger: ".heading",
-        start: "top 60%",
+        start: "top 40%",
         once: true,
       },
     });
@@ -65,7 +65,7 @@ const Benefits = () => {
       ease: "power3.out",
       scrollTrigger: {
         trigger: ".benefits-container",
-        start: "top 60%",
+        start: "top 40%",
         once: true,
       },
     });

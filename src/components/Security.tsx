@@ -1,9 +1,10 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Heading from "./Heading";
 import SubHeading from "./SubHeading";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -59,51 +60,45 @@ const security = [
 const Security = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 60%",
-          end: "bottom 60%",
-          toggleActions: "play none none reverse",
-          once: true,
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 40%",
+        toggleActions: "play none none reverse",
+        once: true,
+      },
+    });
+
+    tl.from(".security-heading", {
+      y: 40,
+      opacity: 0,
+      duration: 0.4,
+      ease: "power3.out",
+    })
+      .from(
+        ".security-paragraph",
+        {
+          y: 40,
+          opacity: 0,
+          duration: 0.4,
+          ease: "power3.out",
         },
-        delay: 0.3, // delay before animation starts
-      });
-
-      tl.from(".security-heading", {
-        y: 40,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power3.out",
-      })
-        .from(
-          ".security-paragraph",
-          {
-            y: 40,
-            opacity: 0,
-            duration: 0.8,
-            ease: "power3.out",
-          },
-          "-=0.4"
-        )
-        .from(
-          ".security-card",
-          {
-            y: 40,
-            opacity: 0,
-            scale: 0.95,
-            duration: 0.6,
-            stagger: 0.1,
-            ease: "power3.out",
-          },
-          "-=0.3"
-        );
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
+        "-=0.4"
+      )
+      .from(
+        ".security-card",
+        {
+          y: 40,
+          opacity: 0,
+          scale: 0.95,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: "power3.out",
+        },
+        "-=0.3"
+      );
+  });
 
   return (
     <section

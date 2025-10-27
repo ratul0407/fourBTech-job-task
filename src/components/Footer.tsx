@@ -1,66 +1,64 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import Link from "next/link";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Footer = () => {
   const footerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     const footer = footerRef.current;
     if (!footer) return;
 
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: footer,
-          start: "top 90%", // starts when footer is about to appear
-          toggleActions: "play none none reverse",
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: footer,
+        start: "top 60%",
+        toggleActions: "play none none none",
+        once: true,
+      },
+    });
+
+    tl.from(".footer-section", {
+      opacity: 0,
+      y: 60,
+      duration: 0.8,
+      ease: "power3.out",
+    })
+      .from(
+        ".footer-nav",
+        {
+          opacity: 0,
+          y: 40,
+          stagger: 0.2,
+          duration: 0.7,
+          ease: "power3.out",
         },
-      });
-
-      tl.from(".footer-section", {
-        opacity: 0,
-        y: 60,
-        duration: 0.8,
-        ease: "power3.out",
-      })
-        .from(
-          ".footer-nav",
-          {
-            opacity: 0,
-            y: 40,
-            stagger: 0.2,
-            duration: 0.7,
-            ease: "power3.out",
-          },
-          "-=0.4"
-        )
-        .from(
-          ".footer-bottom",
-          {
-            opacity: 0,
-            y: 20,
-            duration: 0.6,
-            ease: "power2.out",
-          },
-          "-=0.3"
-        )
-        .fromTo(
-          ".footer-glow",
-          { opacity: 0, scale: 0.8 },
-          { opacity: 1, scale: 1, duration: 1.2, ease: "power2.out" },
-          "-=0.6"
-        );
-    }, footer);
-
-    return () => ctx.revert();
-  }, []);
+        "-=0.4"
+      )
+      .from(
+        ".footer-bottom",
+        {
+          opacity: 0,
+          y: 20,
+          duration: 0.6,
+          ease: "power2.out",
+        },
+        "-=0.3"
+      )
+      .fromTo(
+        ".footer-glow",
+        { opacity: 0, scale: 0.8 },
+        { opacity: 1, scale: 1, duration: 1.2, ease: "power2.out" },
+        "-=0.6"
+      );
+  });
 
   return (
     <footer

@@ -50,7 +50,7 @@ const Pricing = () => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: "top 60%",
+        start: "top 40%",
         end: "bottom 60%",
         toggleActions: "play none none reverse",
         once: true,

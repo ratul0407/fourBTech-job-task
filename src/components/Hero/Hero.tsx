@@ -1,8 +1,8 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import "./styles.modules.css";
-import AppleIcon from "@/public/Apple.png";
-import PlayStoreIcon from "@/public/Playstore.png";
+import AppleIcon from "@/public/icons/Apple.png";
+import PlayStoreIcon from "@/public/icons/Playstore.png";
 import HeroImg from "@/public/images/hero.png";
 import TrendUp from "@/public/icons/trend-up.svg";
 import User1 from "@/public/images/user1.png";
@@ -17,7 +17,7 @@ const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   useGSAP(() => {
     const tl = gsap.timeline({
-      defaults: { ease: "power2.out", duration: 0.6 },
+      defaults: { ease: "power2.out", duration: 0.4 },
     });
 
     tl.from(".hero-img", { opacity: 0, y: 60 })
